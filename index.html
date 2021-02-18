@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>Opdracht 13 - Javascript Yahtzee</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script type="text/javascript" src="https://livejs.com/live.js"></script>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row w-100">
+            <div class="col">
+               <h3 class="text-center p-3" >Yahtzee</h3>
+               <hr>
+            </div>
+         </div>
+         <!-- end head row -->
+         <div class="row w-100 pb-3">
+            <div class="col text-right">
+              <h6 class="invisible">hide</h6>
+              <button onclick="dice.limit()" type="button" name="button" class="rollButton btn btn-dark pl-5 pr-5 m-2">ROLL!</button>
+              <h6 class="m-2">Rolls: <span class="rolls">0</span></h6>
+            </div>
+            <div class="col">
+              <h6 class="m-1">Your roll</h6>
+               <div class="col diceElements m-1">0</div>
+               <div class="col diceElements m-1">0</div>
+               <div class="col diceElements m-1">0</div>
+               <div class="col diceElements m-1">0</div>
+               <div class="col diceElements m-1">0</div>
+               <div class="btn btn-dark col m-1 count">Fill in score</div>
+            </div>
+            </div>
+            <div class="row w-100 justify-content-md-center ">
+               <div class="col">
+                  <!-- deel 1 -->
+                  <table class="table table-hover">
+                     <thead class="thead-dark">
+                        <tr>
+                           <th scope="col">Deel 1</th>
+                           <th scope="col">Score</th>
+                        </tr>
+                     </thead>
+                     <tbody class="all">
+                       <tr class="d-none">
+                          <td scope="row">Hidden</td>
+                          <td class="sheetOne bl">0</td>
+                       </tr>
+                        <tr class="lock">
+                           <td scope="row">One's</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Two's</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Thee's</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Fours</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Fives</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Sixes</td>
+                           <td class="sheetOne bl">0</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- deel 2 -->
+               <div class="col">
+                  <table class="table table-hover">
+                     <thead class="thead-dark">
+                        <tr>
+                           <th scope="col">Deel 2</th>
+                           <th scope="col">Score</th>
+                        </tr>
+                     </thead>
+                     <tbody class="all">
+                        <tr class="lock">
+                           <td scope="row">Three of a Kind</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Four of a Kind</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Full House</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Low Straight</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">High Straight</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Chance</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                        <tr class="lock">
+                           <td scope="row">Yahtzee</td>
+                           <td class="sheetTwo bl">0</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <div class="row w-100 justify-content-md-center">
+               <div class="col">
+                  <table class="table table-striped">
+                     <thead class="thead-dark">
+                        <tr>
+                           <th colspan="2" scope="col"><button class="btn bg-dark border-white text-white gettotal" type="button" name="button">Get Total</button></th>
+                           <th colspan="1" class="totalsheetOne">0</th>
+                        </tr>
+                     </thead>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <script src="script.js" charset="utf-8"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+   </body>
+</html>

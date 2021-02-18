@@ -1,0 +1,59 @@
+.container-fluid .col .diceElements{
+  font-size: 21px;
+  font-weight: bold;
+  width: auto;
+  float: left !important;
+  padding: 7%;
+  border:1px solid #000;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.text-right .btn-dark{
+  font-size: 20px;
+  font-weight: bold;
+
+}
+
+.keep{
+  color: white!important;
+  background-color: black;
+}
+
+
+.col .table-hover tbody .locked td{
+	background-color:#e3e3e3 !important;
+	border-color:#000;;
+	color:#000;
+	font-weight:500;
+}
+
+.col .table-hover tbody .surelocked td {
+  background-color:#000 !important;
+	border-color:#000;;
+	color:#fff;
+	font-weight:600;
+}
+
+.gettotal{transition: all 10s ease-in-out !important; }
+.gettotal:hover{
+  -webkit-transform:scale(1.05);
+	transform:scale(1.05);
+}
+.gettotal:hover:after{
+    content: ' →';
+}
+
+
+.NonActive{
+	opacity:0.5;
+  pointer-events:none;
+}
+
+
+
+.table-striped tr .totalsheetOne{
+	text-align:right !important;
+  padding: 15px;
+  padding-right: 35px;
+}
