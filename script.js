@@ -1,5 +1,10 @@
 // make dice and put them inside the element
+
+// TODO :: use const when possible, or else let, never use var. Cause it hoists which results in unexpected behavior
+// TODO :: Make methods instead of defining methods with this.[methodName]
+
 class ThrowElement {
+	// TODO :: constructor does not recieve anything
 	constructor(diceElement, sheetElement1, sheetElement2, rollButton, numOfRolls, diceArr, count, turn, objval, result, back, together, aKind) {
 		this.diceElement = document.getElementsByClassName('diceElements');
 		this.totalElement = document.getElementsByClassName('totalsheetOne')[0];
@@ -12,7 +17,7 @@ class ThrowElement {
 		this.numOfRolls = document.getElementsByClassName('rolls')[0];
 		this.totals = [];
 
-
+		// TODO :: why is throw a function? it's only being used once
 		this.throw = (function () {
 			this.diceArr = [];
 			for (let i = 0; i < this.diceElement.length; i++) {
@@ -21,6 +26,7 @@ class ThrowElement {
 					this.diceElement[i].classList.toggle('keep');
 				});
 				this.rollButton.addEventListener("click", e => {
+					// TODO :: you can use ! in order to avoid the if else construction
 					if (toggleEvent.contains('keep')) {} else {
 						this.diceArr[i] = Math.ceil((Math.random() * 6));
 						this.diceElement[i].innerHTML = this.diceArr[i];
@@ -30,6 +36,7 @@ class ThrowElement {
 		}); // end this.throw
 		this.throw();
 
+		// TODO :: why is locked a function? it's only being used once
 		this.locked = (function () {
 			for (let i = 0; i < this.lock.length; i++) {
 				let locked = this.lock[i].classList;
@@ -43,13 +50,18 @@ class ThrowElement {
 					this.turn = 0;
 					this.countButton.classList.add('NonActive')
 
+					// TODO :: you can use ! in order to avoid the if else construction
 					if (this.lock[i].classList.contains('surelocked')) {} else {
+						// TODO :: these functions are being called to often.
+						// For every none surelocked class this function is being called.
+						// First round 13 times, second 12 and so forth
 						this.counter();
 						this.One();
 						this.ofAKind();
 						this.fHouse();
 						this.straight();
 					}
+					// TODO :: when is this.countButton not true? It's an element so it should be true always
 					if (this.countButton) {
 						this.lock[i].addEventListener('click', e => {
 							this.numOfRolls.innerHTML = this.turn;
@@ -63,6 +75,7 @@ class ThrowElement {
 						})
 					}
 				})
+				// TODO :: why is this placed in the for loop?
 				this.clearActives = (function (classlist) {
 					if (classlist) {
 						for (let i = 0; i < classlist.length; i++) {
@@ -85,6 +98,7 @@ class ThrowElement {
 		this.turn = 0;
 		this.countButton.classList.add('NonActive')
 
+		// TODO :: can bind limit in javascript t the rollButton, like you do with the rest of the event listeners
 		this.limit = (function () {
 			if (this.turn >= 2) {
 				this.countButton.classList.remove('NonActive')
@@ -100,9 +114,12 @@ class ThrowElement {
 
 		// start The Counter and add it up.
 		this.counter = (function () {
+			// TODO :: refactor this function. And add comments for what is happening here
+			// I think you can do it with just one Object
 			this.count = {};
 			this.objval = {};
 			this.result = {};
+			// TODO :: what is back being used for?
 			this.back = {};
 
 			this.diceArr.forEach(function (x) {
@@ -139,7 +156,9 @@ class ThrowElement {
 		// Start Three Of a kind function
 		this.ofAKind = (function () {
 			this.diceSort = this.diceArr.sort((a, b) => a - b);
+			// TODO :: you can reduce here already
 			this.together = (acc, cur) => acc + cur; // optellen van alle ogen.
+
 			this.aKind = (a, c) => a.filter(x => a.filter(b => b === x).length === c); //checkt hoeveel van de zelfde
 
 			this.aKind3 = this.aKind(this.diceSort, 3); // three of a kind
@@ -189,6 +208,7 @@ class ThrowElement {
 				return false;
 			}
 
+			// TODO :: no need for the == true
 			if (straightfunc(this.diceArr, 4) == true) {
 				this.sheet2[3].innerHTML = 30
 			}
